@@ -1,0 +1,20 @@
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+li {
+    font-size: 15px;
+}
+
+.cont {
+    width: 250px;
+    margin: 0px auto;
+    text-align:left;
+}
+p {
+    font-size: 15px;
+}
