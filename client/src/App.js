@@ -5,9 +5,10 @@ import Main from './views/Main';
 import Context from './context/Context.js'
 import Home from './views/Home';
 import Dashboard from './views/Dashboard';
-import AllSales from './views/AllSales';
+import AllSales from './components/AllSales';
 import LoginReg from './views/LoginReg';
 import Detail from './views/Detail';
+import New from './views/New'
 
 // TRICKLE DOWN STATE
 
@@ -21,7 +22,8 @@ function App() {
         <Router>
           <Home path="/" />
           <Dashboard path="/dashboard" />
-          <Detail path = "/sale/:sale_id" />
+          <New path="/sales/new" />
+          <Detail path = "/sales/:sale_id" />
           <AllSales path = "/sales/"/>
           <LoginReg path ="/start" />
         </Router>

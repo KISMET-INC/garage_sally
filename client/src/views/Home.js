@@ -5,16 +5,17 @@ import '../App.css';
 import Component from '../components/Component.js';
 import Landing from '../components/Landing.js';
 import {Link} from '@reach/router'
+import Navbar from '../components/Navbar.js';
+
+
 
 const Home = props => {
     const context = useContext(Wrapper)
 
     return (
         <div>
-            <p>im the Home View!</p>
-            <h2>Welcome to Garage Sally</h2>
+           <Navbar />
             <Landing />
-            <Link to = "/start">Login or Register </Link>
         </div>
     );   
 }

@@ -4,14 +4,17 @@ import Wrapper from '../context/Context.js'
 import '../App.css';
 import Component from '../components/Component.js';
 import {Link, navigate} from '@reach/router'
+import Navbar from '../components/Navbar.js';
+import LoginForm from '../components/LoginForm.js';
 
 const LoginReg = props => {
     const context = useContext(Wrapper)
 
     return (
         <div>
-            <p>im the LoginReg View! </p>
-            <Link to="/dashboard"> Goto Dashboard</Link>
+            <Navbar />
+            <LoginForm />
+            
         </div>
     );   
 }
