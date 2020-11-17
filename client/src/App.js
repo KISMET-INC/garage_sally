@@ -5,7 +5,7 @@ import Main from './views/Main';
 import Context from './context/Context.js'
 import Home from './views/Home';
 import Dashboard from './views/Dashboard';
-import AllSales from './components/AllSales';
+import AllSales from './views/AllSales';
 import LoginReg from './views/LoginReg';
 import Detail from './views/Detail';
 import New from './views/New'

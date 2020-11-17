@@ -11,8 +11,6 @@ const garageListStyle ={
     marginBottom: 30,
 }
 const SaleListing = props => {
-    const context = useContext(Wrapper)
-
     return (
         <div style={garageListStyle} >
             <p> Date: Saturday, June 14th, 2020 </p>

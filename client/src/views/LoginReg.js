@@ -8,13 +8,11 @@ import Navbar from '../components/Navbar.js';
 import LoginForm from '../components/LoginForm.js';
 
 const LoginReg = props => {
-    const context = useContext(Wrapper)
 
     return (
         <div>
             <Navbar />
             <LoginForm />
-            
         </div>
     );   
 }

@@ -6,7 +6,6 @@ import { Link, navigate } from '@reach/router';
 
 
 const LoginForm = props => {
-    const context = useContext(Wrapper)
 
     return (
         <div>
@@ -23,8 +22,7 @@ const LoginForm = props => {
                 </div>
 
                 <input type ='submit' onClick={(e)=> navigate('/dashboard')} value= 'Login'></input>
-                </form>
-
+            </form>
         </div>
     );   
 }

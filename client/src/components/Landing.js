@@ -6,7 +6,6 @@ import { Link, navigate } from '@reach/router';
 
 
 const Landing = props => {
-    const context = useContext(Wrapper)
 
     return (
         <div>

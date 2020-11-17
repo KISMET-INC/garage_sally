@@ -9,22 +9,22 @@ import Navbar from '../components/Navbar.js';
 
 
 const New = props => {
-    const context = useContext(Wrapper)
-
     return (
         <div>
             <Navbar />
             <h2>Add your Garage Sale</h2>
-           <form>
-               <div>
+            <form>
+                <div>
                     <label htmlFor ="address">Address:</label>
                     <input type ='text' name='address'></input>
-               </div>
-               <div>
+                </div>
+                
+                <div>
                     <label htmlFor ="Date">Date:</label>
                     <input type ='date' name='date'></input>
-               </div>
-               <input onClick ={(e)=> {navigate('/dashboard')}} type ='submit' value= 'Post Sale'></input>
+                </div>
+                
+                <input onClick ={(e)=> {navigate('/dashboard')}} type ='submit' value= 'Post Sale'></input>  
             </form>
 
         </div>

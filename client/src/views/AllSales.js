@@ -2,14 +2,11 @@ import React from 'react';
 import {useContext} from 'react';
 import Wrapper from '../context/Context.js'
 import '../App.css';
-import Component from './Component.js';
 import {Link} from '@reach/router'
-import Navbar from './Navbar.js';
-import SaleListing from './SaleListing.js';
+import SaleListing from '../components/SaleListing.js';
 
 
 const AllSales = props => {
-    const context = useContext(Wrapper)
 
     return (
         <div>
