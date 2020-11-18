@@ -29,26 +29,26 @@ const Detail = props => {
     
     const getDirections=(e)=> {
 
-        console.log(origin)
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        axios.get(proxyurl + "https://maps.googleapis.com/maps/api/directions/json?origin="+ origin + "&destination="+destination+"&key=AIzaSyBxXGgE0EvGPyn5mabnmvBl_p8Qpm5k9Kw")
-        .then(res=>{
-            const directionsArr = []
-            for(var i = 0; i < res.data.routes[0].legs[0].steps.length; i++ ){
-                console.log(res.data.routes[0].legs[0].steps[i].html_instructions)
-                directionsArr.push(res.data.routes[0].legs[0].steps[i].html_instructions)
-            }
-            console.log(directionsArr)
-            setDirections(directionsArr)
-            setDuration(res.data.routes[0].legs[0].duration.text)
-            setDistance(res.data.routes[0].legs[0].distance.text)       
-        })
-        .catch(err=>console.log(err))
+        // console.log(origin)
+        // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        // axios.get(proxyurl + "https://maps.googleapis.com/maps/api/directions/json?origin="+ origin + "&destination="+destination+"&key=AIzaSyBxXGgE0EvGPyn5mabnmvBl_p8Qpm5k9Kw")
+        // .then(res=>{
+        //     const directionsArr = []
+        //     for(var i = 0; i < res.data.routes[0].legs[0].steps.length; i++ ){
+        //         console.log(res.data.routes[0].legs[0].steps[i].html_instructions)
+        //         directionsArr.push(res.data.routes[0].legs[0].steps[i].html_instructions)
+        //     }
+        //     console.log(directionsArr)
+        //     setDirections(directionsArr)
+        //     setDuration(res.data.routes[0].legs[0].duration.text)
+        //     setDistance(res.data.routes[0].legs[0].distance.text)       
+        // })
+        // .catch(err=>console.log(err))
         
-        sanitizeHtml(directions, {
-            allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
-            allowedIframeHostnames: ['www.google.com']
-        });
+        // sanitizeHtml(directions, {
+        //     allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
+        //     allowedIframeHostnames: ['www.google.com']
+        // });
     }
 
 
