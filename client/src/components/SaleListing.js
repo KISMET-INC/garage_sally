@@ -1,31 +1,47 @@
 import React from 'react';
-import {useContext, useState} from 'react';
-import Wrapper from '../context/Context.js'
-import '../App.css';
-import {Link} from '@reach/router'
+import {useState, useEffect} from 'react';
+import {Link, navigate} from '@reach/router'
 
-const garageListStyle ={
-    border: "2px solid black",
-    width: 300,
-    margin: '0 auto',
-    marginBottom: 30,
+
+const garageobj = {
+    _id: 1,
+    location: {
+        street: "26345 Cottonwood",
+        city: "Moreno Valley",
+        state: "CA",
+        zipcode: "92555"
+    },
+    dateTime: Date
+    
 }
 
-const SaleListing = props => {
-    const [userAddress,setUserAddress] = useState("27115+Cottonwood+Ave,+Moreno+Valley,+CA,+92555")
-    const [address,setAddress] = useState("26345+Cottonwood+Ave,+Moreno+Valley,+CA,+92555")
-    const [formatedAddress,setFormattedAddress] = useState("")
-    const [map, setMap] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + address +"&size=300x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + address +"&markers=size:mid%7Ccolor:blue%7C" + userAddress +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+const userAddress = "27115 Cottonwood Ave, Moreno Valley, CA 92555"
 
-   
+const SaleListing = props => {
+    const [origin,setOrigin] = useState(userAddress)
+    const [garage, setGarage] = useState(garageobj)
+    const [destination,setDestination] = useState(`${garage.location.street} ${garage.location.city} ${garage.location.state} ${garage.location.zipcode}`)
+    const [map, setMap] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&size=400x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+    const [date, setDate] = useState()
+    const [time, setTime] = useState()
+    const [id, setId] = useState(garage._id)
+    
+
     return (
-        <div style={garageListStyle} >
-            
-            <img src={map}/>
-            <p> Date: Saturday, June 14th, 2020 </p>
-            <p> Visitors: 13 </p>
-            <p> Location: <Link to ={`/sales/${props.saleID}`}>2332 Greenbiar Ct, 92233 </Link></p>
-        </div>
+
+            <div className="allGarageSales-container">
+                <div className="garageSaleItem-container">
+                <img src= {map} alt=""/>
+                    <div className="info-container">
+                        <h3>Date: {date}</h3>
+                        <h3>Time: {time}</h3>
+                        <h3>Location:</h3>
+                        <h4>{destination}  </h4>
+                        <button onClick={(e)=>{navigate(`/sales/${id}`)}}>Go</button>   
+                        
+                    </div>
+                </div>
+            </div>
     );   
 }
 export default SaleListing;

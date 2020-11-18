@@ -7,29 +7,23 @@ import Navbar from '../components/Navbar.js';
 import sanitizeHtml from 'sanitize-html';
 import axios from 'axios';
 
-
-
-
-
 const Detail = props => {
-    // const [userAddress,setUserAddress] = useState("27115+Cottonwood+Ave,+Moreno+Valley,+CA,+92555")
-    // const [address,setAddress] = useState("26345+Cottonwood+Ave,+Moreno+Valley,+CA,+92555")
-
-    const [directions, setDirections] = useState([])
+    const[directions, setDirections] = useState([])
     const[duration, setDuration] =useState("")
     const[distance, setDistance] =useState("")
     const[origin, setOrigin]= useState("26345 CottonWood Ave, Moreno Valley, CA, 92555")
+    const[destination, setDestination]= useState("27115 CottonWood Ave, Moreno Valley, CA, 92555")
+    const[map, setMap] = useState("")
 
-        useEffect(()=> {
-            setOrigin(origin.replaceAll(' ','+'))
-            setDestination(destination.replaceAll(' ','+'))
-        },[])
+    useEffect(()=> {
+        setOrigin(origin.replaceAll(' ','+'))
+        setDestination(destination.replaceAll(' ','+'))
+        setMap("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&size=300x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+    },[])
 
     
     
     const getDirections=(e)=> {
-
-        console.log(origin)
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         axios.get(proxyurl + "https://maps.googleapis.com/maps/api/directions/json?origin="+ origin + "&destination="+destination+"&key=AIzaSyBxXGgE0EvGPyn5mabnmvBl_p8Qpm5k9Kw")
         .then(res=>{
@@ -38,7 +32,6 @@ const Detail = props => {
                 console.log(res.data.routes[0].legs[0].steps[i].html_instructions)
                 directionsArr.push(res.data.routes[0].legs[0].steps[i].html_instructions)
             }
-            console.log(directionsArr)
             setDirections(directionsArr)
             setDuration(res.data.routes[0].legs[0].duration.text)
             setDistance(res.data.routes[0].legs[0].distance.text)       
@@ -73,6 +66,7 @@ const Detail = props => {
                     <div dangerouslySetInnerHTML={{__html: `${items}`}} />
                 )
             }
+            <img src ={map}></img>
         </div>
     );   
 }
