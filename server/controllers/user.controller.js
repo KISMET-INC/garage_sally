@@ -19,9 +19,9 @@ module.exports.createNewUser = (req, res) => {
 };
 
 module.exports.updateExistingUser = (req, res) => {
-    User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
-		.then((updatedUser) => res.json({ user: updatedUser }))
-		.catch((err) => res.json({ message: "Something went wrong", error: err }));
+    User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+        .then((updatedUser) => res.json({ user: updatedUser }))
+        .catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 
 module.exports.deleteAnExistingUser = (req, res) => {
@@ -31,9 +31,9 @@ module.exports.deleteAnExistingUser = (req, res) => {
 };
 
 module.exports.createUniqueUser = (req, res) => {
-    User.exists({ email: req.body.email })
+    User.exists({ title: req.body.title })
         .then((UserExits) => {
-            if (UserExits) {
+            if (UserExits) { 
                 return Promise.reject("User Exists");}
             return User.create(req.body).then((s) => res.json({ success: true }));
         }).catch((err) => res.json({ message: "Something went wrong", error: err }));
@@ -43,21 +43,24 @@ module.exports.updateUniqueExistingUser = (req, res) => {
     User.exists({ title: req.body.title })
         .then((UserExists) => {
             if (UserExists) {
-                User.findOne({ email: req.body.email })
+
+                User.findOne({ title: req.body.title })
                     .then((foundUser) => {
-                        if (req.params.id != foundUser._id) {
+
+                        if (req.params.id != foundUser._id) { 
                             return Promise.reject("User Exists");
                         }
+
                         return User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
-                            .then((s) => res.json({ success: true }))
-                            .catch((err) => console.log(err))
-                    })
-                    .catch((err) => res.json({ message: "Something went wrong", error: err }));
+                                .then((s) => res.json({ success: true }))
+                                .catch((err)=> console.log(err))
+                    }).catch((err) => res.json({ message: "Something went wrong", error: err }));
+
             } else {
+
                 return User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
-                    .then((s) => res.json({ success: true }))
-                    .catch((err)=> console.log(err))
+                        .then((s) => res.json({ success: true }))
+                        .catch((err)=> console.log(err))
             }
-        })
-        .catch((err) => res.json({ message: "Something went wrong", error: err }));
+        }).catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
