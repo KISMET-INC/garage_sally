@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import {useContext, useState} from 'react';
-import Wrapper from '../context/Context.js'
 import '../App.css';
-import {Link} from '@reach/router'
 import Navbar from '../components/Navbar.js';
-//import sanitizeHtml from 'sanitize-html';
 import axios from 'axios';
 
 const Detail = props => {
@@ -37,11 +34,6 @@ const Detail = props => {
             setDistance(res.data.routes[0].legs[0].distance.text)       
         })
         .catch(err=>console.log(err))
-        
-        // sanitizeHtml(directions, {
-        //     allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
-        //     allowedIframeHostnames: ['www.google.com']
-        // });
     }
 
 
