@@ -4,7 +4,7 @@ import Wrapper from '../context/Context.js'
 import '../App.css';
 import {Link} from '@reach/router'
 import Navbar from '../components/Navbar.js';
-import sanitizeHtml from 'sanitize-html';
+// import sanitizeHtml from 'sanitize-html';
 import axios from 'axios';
 
 
@@ -21,8 +21,8 @@ const Detail = props => {
     const[origin, setOrigin]= useState("26345 CottonWood Ave, Moreno Valley, CA, 92555")
 
         useEffect(()=> {
-            setOrigin(origin.replaceAll(' ','+'))
-            setDestination(destination.replaceAll(' ','+'))
+            // setOrigin(origin.replaceAll(' ','+'))
+            // setDestination(destination.replaceAll(' ','+'))
         },[])
 
     

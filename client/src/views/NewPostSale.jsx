@@ -48,8 +48,6 @@ const NewPostSale = props => {
                 <p>Luis Cardona</p>
             </div>
 
-
-
             <nav>
                 <Link to="/new-sale"> new sale</Link>
                 <Link to="/edit/:id"> re-post</Link>
@@ -78,9 +76,6 @@ const NewPostSale = props => {
                 placeholder="image url"
                 onChange={e => {setLocation(e.target.value)}}
                 />
-
-
-            
 
 
                 <button> Post Sale</button>
