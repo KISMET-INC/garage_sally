@@ -3,6 +3,12 @@ import React, { useState } from 'react';
 import {Router} from '@reach/router';
 import Main from './views/Main';
 import Context from './context/Context.js'
+import Home from './views/Home';
+import Dashboard from './views/Dashboard';
+import AllSales from './views/AllSales';
+import LoginReg from './views/LoginReg';
+import Detail from './views/Detail';
+import New from './views/New'
 
 // TRICKLE DOWN STATE
 
@@ -12,10 +18,14 @@ function App() {
 
   return (
     <div className="App">
-      <p> I am the APP</p>
       <Context.Provider value= {{updateView, setUpdateView}}>
         <Router>
-          <Main path="/" />
+          <Home path="/" />
+          <Dashboard path="/dashboard" />
+          <New path="/sales/new" />
+          <Detail path = "/sales/:sale_id" />
+          <AllSales path = "/sales/"/>
+          <LoginReg path ="/start" />
         </Router>
       </Context.Provider>
       </div>
