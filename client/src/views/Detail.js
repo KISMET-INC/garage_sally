@@ -12,15 +12,18 @@ const Detail = props => {
     const[destination, setDestination]= useState("27115 CottonWood Ave, Moreno Valley, CA, 92555")
     const[map, setMap] = useState("")
 
+
     useEffect(()=> {
         setOrigin(origin.replaceAll(' ','+'))
         setDestination(destination.replaceAll(' ','+'))
         setMap("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&size=300x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
     },[])
 
+
     
     
     const getDirections=(e)=> {
+
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         axios.get(proxyurl + "https://maps.googleapis.com/maps/api/directions/json?origin="+ origin + "&destination="+destination+"&key=AIzaSyBxXGgE0EvGPyn5mabnmvBl_p8Qpm5k9Kw")
         .then(res=>{
