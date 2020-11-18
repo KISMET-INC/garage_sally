@@ -20,8 +20,6 @@ const Detail = props => {
     },[])
 
 
-    
-    
     const getDirections=(e)=> {
 
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -37,6 +35,7 @@ const Detail = props => {
             setDistance(res.data.routes[0].legs[0].distance.text)       
         })
         .catch(err=>console.log(err))
+
     }
 
 
@@ -48,7 +47,7 @@ const Detail = props => {
             <h2>12233 Garrison Drive <button>Rate This Sale</button> </h2>
             <p> Visitors: 13  <button>CheckIn</button> </p>
             <p> Hosted by: DealLover99 </p>
-            
+
             <button>Share this Link</button>
             <button>Add to Favorites</button>
 
@@ -56,13 +55,13 @@ const Detail = props => {
             <p>Distance: {distance}</p>
             <p>Duration: {duration}</p>
             <p>Directions: </p>
-            {
-                directions.map((items,i)=> 
+            {/* {
+                directions.map((items,i)=>
                     <div dangerouslySetInnerHTML={{__html: `${items}`}} />
                 )
-            }
-            <img src ={map}></img>
+            } */}
+
         </div>
-    );   
+    );
 }
 export default Detail;
