@@ -10,7 +10,7 @@ const GarageSchema = new mongoose.Schema(
 			type: Number,
 			required: [true, "A zipcode is required"]
 		},
-		//use .toLocalDateString(),  .toLocalTimeString(), .toLocaleString("en-US", { timeZone: "PST" })
+		//use .toLocalDateString("en-US").split("/"),  .toLocalTimeString("en-US").split(/:/), .toLocaleString("en-US", { timeZone: "PST" })
 		datetime: {
 			type: Date,
 			required: [true, "A date and time is required"],
