@@ -12,6 +12,7 @@ const Home = props => {
         <div>
             <Navbar />
             <Landing />
+
         </div>
     );   
 }
