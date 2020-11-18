@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const GarageSchema = new mongoose.Schema(
 	{
@@ -17,7 +16,7 @@ const GarageSchema = new mongoose.Schema(
 			zipcode: {
 				type: Number,
 				required: [true, "A zipcode is required"],
-			}
+			},
 		},
 
 		date: {
