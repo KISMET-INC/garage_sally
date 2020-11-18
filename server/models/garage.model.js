@@ -18,15 +18,10 @@ const GarageSchema = new mongoose.Schema(
 				required: [true, "A zipcode is required"],
 			},
 		},
-
-		date: {
+		//use .toLocalDateString() and .toLocalTimeString()
+		datetime: {
 			type: Date,
-			required: [true, "A date is required"],
-		},
-
-		time: {
-			type: Date,
-			required: [true, "A time is required"],
+			required: [true, "A date and time is required"],
 		},
 	},
 	{ timestamps: true }
