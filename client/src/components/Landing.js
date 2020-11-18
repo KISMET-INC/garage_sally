@@ -10,7 +10,7 @@ const Landing = props => {
     return (
         <div>
             <h2>We help you find garage sales near you!</h2>
-            <Link to = "/start">Login or Register </Link>
+            <Link to = "/login">Login or Register </Link>
         </div>
     );   
 }
