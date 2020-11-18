@@ -19,10 +19,8 @@ const GarageSchema = new mongoose.Schema(
 		//use .toLocalDateString(),  .toLocalTimeString(), .toLocaleString("en-US", { timeZone: "PST" })
 		datetime: {
 			type: Date,
-			default: Date.now,
-			min: "1987-09-28",
-			max: "2025-05-23",
-			// required: [true, "A date and time is required"],
+			required: [true, "A date and time is required"],
+			min: Date.now
 		},
 	},
 	{ timestamps: true }
