@@ -1,10 +1,10 @@
 {
   "name": "garage_sally",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.10.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louieLouie117/garage_sally.git"
+  },
+  "bugs": {
+    "url": "https://github.com/louieLouie117/garage_sally/issues"
+  },
+  "homepage": "https://github.com/louieLouie117/garage_sally#readme",
+  "description": ""
 }
