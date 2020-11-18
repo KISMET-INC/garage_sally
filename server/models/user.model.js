@@ -5,14 +5,13 @@ const UserSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
-			required: [true, "{PATH} is required"],
-			minlength: [2, "{PATH} must be at least {MINLENGTH}"],
+			required: [true, "A name is required"],
+			minlength: [2, "A name must be at least 2 letters"],
 		},
 
 		email: {
 			type: String,
-			required: [true, "{PATH} is required"],
-			minlength: [2, "{PATH} must be at least {MINLENGTH}"],
+			required: [true, "An email is required"],
 			validate: {
 				validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
 				message: "Please enter a valid email",
@@ -21,8 +20,8 @@ const UserSchema = new mongoose.Schema(
 
 		password: {
 			type: String,
-			required: [true, "{PATH} is required"],
-			minlength: [2, "{PATH} must be at least {MINLENGTH}"],
+			required: [true, "Password is required"],
+			minlength: [8, "Password must be at least 8 characters"],
 		},
 	},
 	{ timestamps: true }
