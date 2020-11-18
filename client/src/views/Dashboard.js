@@ -23,7 +23,7 @@ const Dashboard = props => {
                     <input type="text" placeholder="search"/>
                 </footer>
             </div>
-            <SaleListing />
+            <SaleListing/>
             <div className="allGarageSales-container">
                 <div className="garageSaleItem-container">
                 <img src="http://northwrightcounty.today/wp-content/uploads/2016/05/garage-sale-driveway.jpg" alt=""/>

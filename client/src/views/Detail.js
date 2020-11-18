@@ -4,7 +4,7 @@ import Wrapper from '../context/Context.js'
 import '../App.css';
 import {Link} from '@reach/router'
 import Navbar from '../components/Navbar.js';
-import sanitizeHtml from 'sanitize-html';
+//import sanitizeHtml from 'sanitize-html';
 import axios from 'axios';
 
 const Detail = props => {
@@ -38,10 +38,10 @@ const Detail = props => {
         })
         .catch(err=>console.log(err))
         
-        sanitizeHtml(directions, {
-            allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
-            allowedIframeHostnames: ['www.google.com']
-        });
+        // sanitizeHtml(directions, {
+        //     allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
+        //     allowedIframeHostnames: ['www.google.com']
+        // });
     }
 
 
@@ -57,7 +57,7 @@ const Detail = props => {
             <button>Share this Link</button>
             <button>Add to Favorites</button>
 
-           <p> <button onClick={e => getDirections(e)}>Get Directions</button> </p>
+            <p><button onClick={e => getDirections(e)}>Get Directions</button> </p>
             <p>Distance: {distance}</p>
             <p>Duration: {duration}</p>
             <p>Directions: </p>

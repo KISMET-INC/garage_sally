@@ -6,16 +6,16 @@ import {Link, navigate} from '@reach/router'
 const garageobj = {
     _id: 1,
     location: {
-        street: "26345 Cottonwood",
-        city: "Moreno Valley",
-        state: "CA",
-        zipcode: "92555"
+        street: "",
+        city: "",
+        state: "WA",
+        zipcode: ""
     },
     dateTime: Date
     
 }
 
-const userAddress = "27115 Cottonwood Ave, Moreno Valley, CA 92555"
+const userAddress = "New York"
 
 const SaleListing = props => {
     const [origin,setOrigin] = useState(userAddress)
