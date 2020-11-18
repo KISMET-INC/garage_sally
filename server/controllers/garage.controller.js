@@ -12,7 +12,7 @@ module.exports.findOneSingleGarage = (req, res) => {
         .catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 
-module.exports.createNewGarage = (req, res) => {
+module.exports.createGarage = (req, res) => {
     Garage.create(req.body)
         .then((newGarage) => res.json({ user: newGarage }))
         .catch((err) => res.json({ message: "Something went wrong", error: err }));
