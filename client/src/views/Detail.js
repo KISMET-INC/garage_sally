@@ -6,13 +6,15 @@ import axios from 'axios';
 
 //Hard coded user address
 const userAddress = "27115 CottonWood Ave, Moreno Valley, CA, 92555"
-
+const x  = true
 //Temp styling
 const flex = {
     display: 'flex',
     justifyContent: 'space-between',
     textAlign: 'left'
 }
+
+
 
 const Detail = props => {
     const [date, setDate] = useState();
