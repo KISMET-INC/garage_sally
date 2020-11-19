@@ -5,8 +5,8 @@ import {navigate} from '@reach/router'
 const SaleListing = props => {
     const {garage} = props
     const [destination] = useState(garage.location)
-    
-    const [map] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&zoom=18&size=400x300&maptype=roadmap&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+
+    const [map] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&zoom=18&size=400x300&maptype=roadmap&markers=size:mid%%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
 
     const [date, setDate] = useState()
     const [time, setTime] = useState()
@@ -22,6 +22,7 @@ const SaleListing = props => {
     },[])
 
     return (
+        <div>
 
             <div className="allGarageSales-container">
                 <div className="garageSaleItem-container">
@@ -31,9 +32,11 @@ const SaleListing = props => {
                         <h3>Time: {time}</h3>
                         <h3>Location:</h3>
                         <h4>{destination}</h4>
+                       
                         <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>                
                     </div>
                 </div>
+            </div>
             </div>
     );   
 }

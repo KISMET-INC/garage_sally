@@ -13,7 +13,6 @@ const Dashboard = props => {
             setGarageList(res.data.users)
         })
         .catch(err=>console.log(err))
- 
     },[])
 
     return (
