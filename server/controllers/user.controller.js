@@ -15,7 +15,7 @@ module.exports.findOneSingleUser = (req, res) => {
 module.exports.createNewUser = (req, res) => {
     User.create(req.body)
         .then((newlyCreatedUser) => res.json({ user: newlyCreatedUser }))
-        .catch((err) => res.json({ message: "Something went wrong", error: err }));
+        .catch((err) => res.json({ message: "Something went wrongs", error: err }));
 };
 
 module.exports.updateExistingUser = (req, res) => {

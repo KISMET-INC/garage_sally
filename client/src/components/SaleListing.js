@@ -36,8 +36,7 @@ const SaleListing = props => {
                         <h3>Date: {date}</h3>
                         <h3>Time: {time}</h3>
                         <h3>Location:</h3>
-                        <h4>{destination}  </h4>
-                        <button onClick={(e)=>{navigate(`/sales/${id}`)}}>Go</button>   
+                        <h4>{destination}</h4>
                         
                     </div>
                 </div>
