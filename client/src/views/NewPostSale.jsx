@@ -5,8 +5,12 @@ import axios from "axios"
 
 const NewPostSale = props => {
 
-    const [dateTime, setDateTime] = useState();
-    const [location, setLocation] = useState();
+    const [datetime, setDatetime] = useState();
+    const [startTime, setStartTime] = useState();
+    const [endTime, setEndTime] = useState();
+    const [streetNumber, setStreetNumber] = useState();
+    const [address, setAddress] = useState();
+    const [zipcode, setZipcode] = useState();
     const [errors, setErrors] = useState();
 
 
@@ -15,13 +19,13 @@ const NewPostSale = props => {
         e.preventDefault();
 
         const newGarageSale ={
-            dateTime: dateTime,
-            location: location,
-         
+            datetime: datetime,
+            address: address,
+            zipcode: zipcode,
         }
 
 
-        axios.post("http://localhost:8000/api/user", newGarageSale)
+        axios.post("http://localhost:8000/api/garages/new", newGarageSale)
         .then((res)=>{
             console.log(res);
             navigate("/dashboard")
@@ -30,6 +34,8 @@ const NewPostSale = props => {
             console.log(err);
             setErrors(err.response?.data?.errors)
         })
+
+        console.log(newGarageSale);
     }
 
 
@@ -56,27 +62,68 @@ const NewPostSale = props => {
 
             <form onSubmit={(e)=> {submitHandler(e)}}>
 
-                {errors?.name && (<p style={{color: "red"}}>{errors.name?.message}</p>)}
+                {errors?.datetime && (<p style={{color: "red"}}>
+                {errors.datetime?.message}</p>)}
                 <input 
-                type="datetime-local"
+                type="date"
                 placeholder="date"
-                onChange={e => {setDateTime(e.target.value)}}
+                onChange={e => {setDatetime(e.target.value)}}
                 />
-
-                {errors?.email && (<p style={{color: "red"}}>{errors.email?.message}</p>)}
-                <input 
-                placeholder="address:"
-                onChange={e => {setLocation(e.target.value)}}
-                />
-
 
                 
-                {errors?.email && (<p style={{color: "red"}}>{errors.email?.message}</p>)}
-                <input 
-                placeholder="image url"
-                onChange={e => {setLocation(e.target.value)}}
-                />
+                <div className="timeStamp-container">
+                    <label>Start Time</label>
+                    {errors?.zipecode && (<p style={{color: "red"}}>
+                    {errors.zipecode?.message}</p>)}
+                    <input 
+                    type="time"
+                    placeholder="Start Time:"
+                    onChange={e => {setStartTime(e.target.value)}}
+                    />
 
+                    <label>End Time</label>
+                    {errors?.location && (<p style={{color: "red"}}>
+                    {errors.location?.message}</p>)}
+                    <input 
+                    type="time"
+                    placeholder="End Time:"
+                    onChange={e => {setEndTime(e.target.value)}}
+                    />
+                </div>
+
+
+                <div className="addressForm-container">
+                    {errors?.address && (<p style={{color: "red"}}>
+                    {errors.address?.message}</p>)}
+                    <input 
+                    type="number"
+                    placeholder="Street #:"
+                    onChange={e => {setAddress(e.target.value)}}
+                    />
+                    
+                    {errors?.zipecode && (<p style={{color: "red"}}>
+                    {errors.zipecode?.message}</p>)}
+                    <input 
+                    placeholder="street address:"
+                    onChange={e => {setZipcode(e.target.value)}}
+                    />
+                </div>
+                        
+                <div className="cityZip-container">
+                    {errors?.address && (<p style={{color: "red"}}>
+                    {errors.address?.message}</p>)}
+                    <input 
+                    placeholder="City:"
+                    onChange={e => {setAddress(e.target.value)}}
+                    />
+                    
+                    {errors?.zipecode && (<p style={{color: "red"}}>
+                    {errors.zipecode?.message}</p>)}
+                    <input 
+                    placeholder="Zip Code:"
+                    onChange={e => {setZipcode(e.target.value)}}
+                    />
+                </div>
 
                 <button> Post Sale</button>
 

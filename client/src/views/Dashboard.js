@@ -32,7 +32,8 @@ const Dashboard = props => {
                         <h3>Time: date here</h3>
                         <h3>Location: </h3>
                         <h4>date here</h4>
-                        <button>Go</button>
+
+                    <button><Link to="/garage/info/5"> go</Link> </button>
                     </div>
                 </div>
 
