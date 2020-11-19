@@ -4,7 +4,7 @@ import {Router} from '@reach/router';
 // import Main from './views/Main';
 import Context from './context/Context.js'
 import Home from './views/Home';
-import Dashboard from './views/Dashboard';
+import Dashboard from './views/Dashboard_K';
 import AllSales from './views/AllSales';
 // import LoginReg from './views/LoginReg';
 import Detail from './views/Detail';
@@ -33,8 +33,6 @@ function App() {
           <Login path="login"/>
           <NewPostSale path="new-sale"/>
         </Router>
-
-
       </Context.Provider>
       </div>
   );

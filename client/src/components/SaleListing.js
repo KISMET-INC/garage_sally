@@ -1,31 +1,25 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {Link, navigate} from '@reach/router'
-
-
-const garageobj = {
-    _id: 1,
-    location: {
-        street: "",
-        city: "",
-        state: "WA",
-        zipcode: ""
-    },
-    dateTime: Date
-    
-}
-
-const userAddress = "New York"
+import {navigate} from '@reach/router'
 
 const SaleListing = props => {
-    const [origin,setOrigin] = useState(userAddress)
-    const [garage, setGarage] = useState(garageobj)
-    const [destination,setDestination] = useState(`${garage.location.street} ${garage.location.city} ${garage.location.state} ${garage.location.zipcode}`)
-    const [map, setMap] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&size=400x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+    const {garage} = props
+    const [destination] = useState(garage.location)
+    
+    const [map] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&zoom=18&size=400x300&maptype=roadmap&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+
     const [date, setDate] = useState()
     const [time, setTime] = useState()
-    const [id, setId] = useState(garage._id)
-    
+
+    useEffect(()=> {
+
+        let tempDate = new Date(garage.datetime)
+        setDate(tempDate.toLocaleDateString("en-US"))
+
+        let tempTime = new Date(garage.datetime)
+        setTime(tempTime.toLocaleTimeString("en-US"))
+        
+    },[])
 
     return (
 
@@ -37,8 +31,7 @@ const SaleListing = props => {
                         <h3>Time: {time}</h3>
                         <h3>Location:</h3>
                         <h4>{destination}</h4>
-                        <button onClick={e=> {navigate('sales/1')}}>Go</button>
-                        
+                        <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>                
                     </div>
                 </div>
             </div>
