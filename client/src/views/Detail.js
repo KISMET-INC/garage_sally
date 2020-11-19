@@ -4,19 +4,37 @@ import '../App.css';
 import Navbar from '../components/Navbar.js';
 import axios from 'axios';
 
-const Detail = props => {
-    const[directions, setDirections] = useState([])
-    const[duration, setDuration] =useState("")
-    const[distance, setDistance] =useState("")
-    const[origin, setOrigin]= useState("26345 CottonWood Ave, Moreno Valley, CA, 92555")
-    const[destination, setDestination]= useState("27115 CottonWood Ave, Moreno Valley, CA, 92555")
-    const[map, setMap] = useState("")
+const userAddress = "27115 CottonWood Ave, Moreno Valley, CA, 92555"
+const detailStyle = {
+    display: 'flex',
+}
 
+const Detail = props => {
+    const[date, setDate] = useState();
+    const[time, setTime] = useState();
+    const[directions, setDirections] = useState([])
+    const[duration, setDuration] = useState("")
+    const[distance, setDistance] = useState("")
+    const[origin, setOrigin] = useState(userAddress)
+    const[destination, setDestination] = useState("")
+    const[map, setMap] = useState("")
+    const[loaded, setLoaded] = useState(false)
 
     useEffect(()=> {
-        setOrigin(origin.replaceAll(' ','+'))
-        setDestination(destination.replaceAll(' ','+'))
-        setMap("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&size=300x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+        axios.get(`http://localhost:8000/api/garages/5fb5e95b1e5c832a885398d7`)
+        .then(res=>{
+            let tempDate = new Date(res.data.garage.datetime)
+            setDate(tempDate.toLocaleDateString("en-US"))
+            let tempTime = new Date(res.data.garage.datetime)
+            setTime(tempTime.toLocaleTimeString("en-US"))
+            setDestination(`${res.data.garage.location}`)
+            setOrigin(origin)
+            setMap("https://maps.googleapis.com/maps/api/staticmap?center=" + res.data.garage.location +"&size=300x300&maptype=roadmap&markers=size:mid%7Ccolor:red%7C" + origin +"&markers=size:mid%7Ccolor:blue%7C" + res.data.garage.location +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
+            setLoaded(true)
+            
+        }).catch(err=>console.log(err))
+        
+
     },[])
 
 
@@ -32,7 +50,8 @@ const Detail = props => {
             }
             setDirections(directionsArr)
             setDuration(res.data.routes[0].legs[0].duration.text)
-            setDistance(res.data.routes[0].legs[0].distance.text)       
+            setDistance(res.data.routes[0].legs[0].distance.text)         
+            setLoaded(true)    
         })
         .catch(err=>console.log(err))
 
@@ -43,23 +62,32 @@ const Detail = props => {
     return (
         <div>
             <Navbar />
-            <h1>Saturday, July 19, 1980</h1>
-            <h2>12233 Garrison Drive <button>Rate This Sale</button> </h2>
-            <p> Visitors: 13  <button>CheckIn</button> </p>
-            <p> Hosted by: DealLover99 </p>
+            <div style={detailStyle}>
+                <div>
+                    <h1>{destination}</h1>
+                    <h2>{date}</h2>
+                    <p>Start Time:</p>
+                    <h2>{time}</h2>
+                    <p>End Time:</p>
+                    <h2>{time}</h2>
+                </div>
 
-            <button>Share this Link</button>
-            <button>Add to Favorites</button>
+                {
+                    loaded &&  <img src={map}></img>
+                }
+
+            </div>
 
             <p><button onClick={e => getDirections(e)}>Get Directions</button> </p>
             <p>Distance: {distance}</p>
             <p>Duration: {duration}</p>
             <p>Directions: </p>
-            {/* {
+            {
                 directions.map((items,i)=>
                     <div dangerouslySetInnerHTML={{__html: `${items}`}} />
                 )
-            } */}
+            }
+
 
         </div>
     );
