@@ -10,18 +10,18 @@ import AllSales from './views/AllSales';
 import Detail from './views/Detail';
 import New from './views/New'
 import Registration from './components/Registration';
-import Login from './components/Login';
+import Login from './components/Login_K';
 import NewPostSale from './views/NewPostSale';
 
 // TRICKLE DOWN STATE
 
 function App() {
-  const [updateView, setUpdateView] = useState(false)
+  const [user,setUser] = useState({})
       
 
   return (
     <div className="App">
-      <Context.Provider value= {{updateView, setUpdateView}}>
+      <Context.Provider value= {{user, setUser}}>
         <Router>
           <Home path="/" />
           <Dashboard path="/dashboard" />

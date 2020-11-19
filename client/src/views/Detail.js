@@ -1,12 +1,12 @@
+import UserContext from '../context/Context.js'
 import React, { useEffect } from 'react';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar.js';
 import axios from 'axios';
 
 //Hard coded user address
 const userAddress = "27115 CottonWood Ave, Moreno Valley, CA, 92555"
-const x  = true
 //Temp styling
 const flex = {
     display: 'flex',
@@ -17,6 +17,7 @@ const flex = {
 
 
 const Detail = props => {
+    const context = useContext(UserContext)
     const [date, setDate] = useState();
     const [time, setTime] = useState();
     const [directions, setDirections] = useState([])
@@ -28,6 +29,7 @@ const Detail = props => {
     const [showDirections, setShowDirections] = useState(false)
 
     useEffect(()=> {
+        console.log(context.user)
         axios.get(`http://localhost:8000/api/garages/${props.sale_id}`)
         .then(res=>{
 
@@ -78,6 +80,7 @@ const Detail = props => {
 
         <Navbar />
         <div>
+            <p>{context.user.name}</p>
             <div style = {flex}>
                 <h3>Distance: {distance}</h3>
                 <h3>Duration: {duration}</h3>
