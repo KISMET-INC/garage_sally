@@ -12,6 +12,7 @@ import New from './views/New'
 import Registration from './components/Registration';
 import Login from './components/Login';
 import NewPostSale from './views/NewPostSale';
+import GarageInfo from './views/GarageInfo';
 
 // TRICKLE DOWN STATE
 
@@ -32,6 +33,7 @@ function App() {
           <Registration path="register"/>
           <Login path="login"/>
           <NewPostSale path="new-sale"/>
+          <GarageInfo path="garage/info/:id"/>
         </Router>
 
 

@@ -6,7 +6,10 @@ import axios from "axios"
 const NewPostSale = props => {
 
     const [datetime, setDatetime] = useState();
-    const [location, setLocation] = useState();
+    const [startTime, setStartTime] = useState();
+    const [endTime, setEndTime] = useState();
+    const [streetNumber, setStreetNumber] = useState();
+    const [address, setAddress] = useState();
     const [zipcode, setZipcode] = useState();
     const [errors, setErrors] = useState();
 
@@ -17,7 +20,7 @@ const NewPostSale = props => {
 
         const newGarageSale ={
             datetime: datetime,
-            location: location,
+            address: address,
             zipcode: zipcode,
         }
 
@@ -75,7 +78,7 @@ const NewPostSale = props => {
                     <input 
                     type="time"
                     placeholder="Start Time:"
-                    onChange={e => {setZipcode(e.target.value)}}
+                    onChange={e => {setStartTime(e.target.value)}}
                     />
 
                     <label>End Time</label>
@@ -84,17 +87,34 @@ const NewPostSale = props => {
                     <input 
                     type="time"
                     placeholder="End Time:"
-                    onChange={e => {setLocation(e.target.value)}}
+                    onChange={e => {setEndTime(e.target.value)}}
                     />
                 </div>
 
-                        
+
                 <div className="addressForm-container">
-                    {errors?.location && (<p style={{color: "red"}}>
-                    {errors.location?.message}</p>)}
+                    {errors?.address && (<p style={{color: "red"}}>
+                    {errors.address?.message}</p>)}
                     <input 
-                    placeholder="Location:"
-                    onChange={e => {setLocation(e.target.value)}}
+                    type="number"
+                    placeholder="Street #:"
+                    onChange={e => {setAddress(e.target.value)}}
+                    />
+                    
+                    {errors?.zipecode && (<p style={{color: "red"}}>
+                    {errors.zipecode?.message}</p>)}
+                    <input 
+                    placeholder="street address:"
+                    onChange={e => {setZipcode(e.target.value)}}
+                    />
+                </div>
+                        
+                <div className="cityZip-container">
+                    {errors?.address && (<p style={{color: "red"}}>
+                    {errors.address?.message}</p>)}
+                    <input 
+                    placeholder="City:"
+                    onChange={e => {setAddress(e.target.value)}}
                     />
                     
                     {errors?.zipecode && (<p style={{color: "red"}}>
