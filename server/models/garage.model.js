@@ -36,6 +36,9 @@ const GarageSchema = new mongoose.Schema(
 			required: [true, "A stop time is required"],
 			min: Date.now
 		},
+		image: {
+			type: String
+		}
 	},
 	{ timestamps: true }
 );
