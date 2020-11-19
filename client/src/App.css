@@ -313,4 +313,16 @@ td {
         border-radius: 30px;
     }
 
-    
+
+    .timeStamp-container{
+      display: grid;
+      row-gap: 5px;
+      grid-template-columns: 1fr 3fr;
+    }
+
+    .addressForm-container{
+      display: grid;
+      column-gap: 3px;
+      grid-template-columns: 1fr 100px;
+      
+    }
