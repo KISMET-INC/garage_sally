@@ -2,7 +2,7 @@ const Garage = require("../models/garage.model");
 
 module.exports.findAllGarages = (req, res) => {
     Garage.find()
-        .then((allDaGarages) => res.json({ users: allDaGarages }))
+        .then((allDaGarages) => res.json({garages: allDaGarages }))
         .catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 
@@ -14,13 +14,13 @@ module.exports.findOneSingleGarage = (req, res) => {
 
 module.exports.createGarage = (req, res) => {
     Garage.create(req.body)
-        .then((newGarage) => res.json({ user: newGarage }))
+        .then((newGarage) => res.json({ garage: newGarage }))
         .catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 
 module.exports.updateExistingGarage = (req, res) => {
     Garage.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
-		.then((updatedGarage) => res.json({ user: updatedGarage }))
+		.then((updatedGarage) => res.json({ garage: updatedGarage }))
 		.catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 

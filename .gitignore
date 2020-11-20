@@ -23,6 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+package-lock.json
+
 
 ### react ###
 .DS_*
@@ -36,3 +38,6 @@ bower_components
 psd
 thumb
 sketch
+
+package-lock.json
+client/package-lock.json
