@@ -43,7 +43,7 @@ const NewPostSale = props => {
         axios.post("http://localhost:8000/api/garages/new", newGarageSale)
         .then((res)=>{
             console.log(res);
-            // navigate("/dashboard")
+            navigate("/dashboard")
         })
         .catch((err)=>{
             console.log(err);

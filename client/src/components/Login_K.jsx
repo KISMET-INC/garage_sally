@@ -1,13 +1,10 @@
 import React, {useState, useContext} from 'react'
-import UserContext from '../context/Context.js'
 import {navigate} from "@reach/router"
 import {Link} from '@reach/router'
 import axios from 'axios';
 
 
-
 const Login = props => {
-    const context = useContext(UserContext)
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [errors, setErrors] = useState([])
@@ -17,7 +14,11 @@ const Login = props => {
         console.log("sign button was click");
         axios.post("http://localhost:8000/api/users/login", data)
         .then(res=>{
-            context.setUser(res)
+            console.log(res)
+            let user = res.data
+            document.cookie=`user=${user.name}`
+            document.cookie=`location=${user.streetNumber} ${user.streetName}, ${user.city}, ${user.zipcode}`
+
             navigate('/dashboard')
         })
         .catch(err=>console.log(err))
