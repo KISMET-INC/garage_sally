@@ -17,8 +17,8 @@ const SaleListing = props => {
         setDate(temp.toLocaleDateString("en-US"))
 
         temp = new Date(garage.startTime)
-        setStartTime(temp.toLocaleTimeString("en-US"))
-        //setStartTime(garage.startTime)
+        //setStartTime(temp.toLocaleTimeString("en-US"))
+        setStartTime(garage.startTime)
 
         garage.hasOwnProperty("image") ? setImage(garage.image) : setImage(image)
     
