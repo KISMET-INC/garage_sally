@@ -10,7 +10,7 @@ const Dashboard = props => {
         axios.get("http://localhost:8000/api/garages/")
         .then(res=>{
             console.log(res)
-            setGarageList(res.data.users)
+            setGarageList(res.data.garages)
         })
         .catch(err=>console.log(err))
     },[])
