@@ -51,7 +51,6 @@ td {
 }
 
 
-
 .regLoginNav-container{
     width: auto;
     background: none;
@@ -116,6 +115,7 @@ td {
       color: white;
       border:  none;
       border-radius: 5px;
+
   }
 
   .dashboard-container{
@@ -251,9 +251,17 @@ td {
     row-gap: 30px;
     width: auto;
     background: none;
-    margin: 0 auto;
     padding: 0px;
+    justify-content: center;
   }
+
+  .newGarageSale-container h2{
+    margin-top: 10px;
+    font: 1.1em sans-serif;
+    color: #B936D2;
+    border-bottom: solid 3px #9f3cb363;
+  }
+
 
 .backBTN-container  {
       display: grid;
@@ -272,7 +280,15 @@ td {
 
 .user-container{
     margin: 0 auto;
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
 
+
+.user-container img {
+  height: 70px;
 }
 
   
@@ -301,6 +317,8 @@ td {
       row-gap: 10px;
       padding: 12px;
       width: 350px;
+      box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.199);
+
 
     
     }
@@ -318,6 +336,8 @@ td {
         border: none;
         padding: 10px;
         border-radius: 30px;
+        margin-top: 10px;
+
     }
 
 
@@ -334,6 +354,7 @@ td {
       
     }
 
+ 
     .cityZip-container{
       display: grid;
       column-gap: 3px;
@@ -432,6 +453,7 @@ td {
   border-radius: 20px;
   padding: 20px;
   margin: 10px;
+  
 }
 
 
