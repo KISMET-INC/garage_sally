@@ -24,7 +24,7 @@ const GarageSchema = new mongoose.Schema(
 		date: {
 			type: Date,
 			required: [true, "A date is required"],
-			min: Date.now
+			// min: Date.now
 		},
 		startTime: {
 			type: String,

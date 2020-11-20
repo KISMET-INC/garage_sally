@@ -6,13 +6,17 @@ import axios from "axios"
 
 const NewPostSale = props => {
 
-    const [datetime, setDatetime] = useState();
-    const [startTime, setStartTime] = useState();
-    const [endTime, setEndTime] = useState();
+
+
     const [streetNumber, setStreetNumber] = useState();
+    const [streetName, setStreetName] = useState();
     const [city, setCity] = useState();
-    const [address, setAddress] = useState();
     const [zipcode, setZipcode] = useState();
+    const [date, setDate] = useState();
+    const [startTime, setStartTime] = useState();
+    const [stopTime, setStopTime] = useState();
+    const [image, setImage] = useState();
+
     const [errors, setErrors] = useState();
     // const [image, setImage] = useState();
 
@@ -23,14 +27,7 @@ const NewPostSale = props => {
         e.preventDefault();
 
         const newGarageSale ={
-            date: datetime,
-            startTime: startTime,
-            stopTime: endTime,
-            streetNumber: streetNumber,
-            address: address,
-            city: city,
-            zipcode: zipcode,
-            // image: image
+
         }
 
 
@@ -41,7 +38,6 @@ const NewPostSale = props => {
         })
         .catch((err)=>{
             console.log(err);
-            setErrors(err.response?.data?.errors)
         })
 
         console.log(newGarageSale);
@@ -71,19 +67,21 @@ const NewPostSale = props => {
 
             <form onSubmit={(e)=> {submitHandler(e)}}>
 
-                {errors?.datetime && (<p style={{color: "red"}}>
-                {errors.datetime?.message}</p>)}
+
+                <h2>Date Time:</h2>
+                {errors?.date && (<p style={{color: "red"}}>
+                {errors.date?.message}</p>)}
                 <input
                 type="date"
                 placeholder="date"
-                onChange={e => {setDatetime(e.target.value)}}
+                onChange={e => {setDate(e.target.value)}}
                 />
 
 
                 <div className="timeStamp-container">
                     <label>Start Time</label>
-                    {errors?.zipecode && (<p style={{color: "red"}}>
-                    {errors.zipecode?.message}</p>)}
+                    {errors?.startTime && (<p style={{color: "red"}}>
+                    {errors.startTime?.message}</p>)}
                     <input
                     type="time"
                     placeholder="Start Time:"
@@ -91,36 +89,37 @@ const NewPostSale = props => {
                     />
 
                     <label>End Time</label>
-                    {errors?.location && (<p style={{color: "red"}}>
-                    {errors.location?.message}</p>)}
+                    {errors?.stopTime && (<p style={{color: "red"}}>
+                    {errors.stopTime?.message}</p>)}
                     <input
                     type="time"
                     placeholder="End Time:"
-                    onChange={e => {setEndTime(e.target.value)}}
+                    onChange={e => {setStopTime(e.target.value)}}
                     />
                 </div>
 
-
+                <h2>Location:</h2>
                 <div className="addressForm-container">
-                    {errors?.address && (<p style={{color: "red"}}>
-                    {errors.address?.message}</p>)}
+                    {errors?.streetNumber && (<p style={{color: "red"}}>
+                    {errors.streetNumber?.message}</p>)}
                     <input
                     type="number"
                     placeholder="Street #:"
                     onChange={e => {setStreetNumber(e.target.value)}}
                     />
 
-                    {errors?.zipecode && (<p style={{color: "red"}}>
-                    {errors.zipecode?.message}</p>)}
+                    {errors?.streetName && (<p style={{color: "red"}}>
+                    {errors.streetName?.message}</p>)}
                     <input
-                    placeholder="street address:"
-                    onChange={e => {setAddress(e.target.value)}}
+                    placeholder="street name:"
+                    onChange={e => {setStreetName(e.target.value)}}
                     />
                 </div>
 
+
                 <div className="cityZip-container">
-                    {errors?.address && (<p style={{color: "red"}}>
-                    {errors.address?.message}</p>)}
+                    {errors?.city && (<p style={{color: "red"}}>
+                    {errors.city?.message}</p>)}
                     <input
                     placeholder="City:"
                     onChange={e => {setCity(e.target.value)}}
@@ -132,7 +131,13 @@ const NewPostSale = props => {
                     placeholder="Zip Code:"
                     onChange={e => {setZipcode(e.target.value)}}
                     />
+
                 </div>
+                <h2>Upload Cover:</h2>
+                <input
+                    placeholder="+ image:"
+                    onChange={e => {setImage(e.target.value)}}
+                    />
 
                 {/* <AddImage setImage={setImage} /> */}
 
