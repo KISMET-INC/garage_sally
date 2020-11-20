@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link, navigate} from '@reach/router'
 import axios from "axios"
-// import AddImage from '../components/AddImage';
 
 
 const NewPostSale = props => {
@@ -12,21 +11,31 @@ const NewPostSale = props => {
     const [streetName, setStreetName] = useState();
     const [city, setCity] = useState();
     const [zipcode, setZipcode] = useState();
+
+
     const [date, setDate] = useState();
     const [startTime, setStartTime] = useState();
     const [stopTime, setStopTime] = useState();
     const [image, setImage] = useState();
 
     const [errors, setErrors] = useState();
-    // const [image, setImage] = useState();
 
 
     function submitHandler(e){
         console.log("submit button was click")
-        // console.log("Image was set", image)
         e.preventDefault();
 
         const newGarageSale ={
+            streetNumber: streetNumber,
+            streetName: streetName,
+            city: city,
+            zipcode: zipcode,
+
+            date: date,
+            startTime: startTime,
+            stopTime: stopTime,
+
+            image: image,
 
         }
 
@@ -38,6 +47,7 @@ const NewPostSale = props => {
         })
         .catch((err)=>{
             console.log(err);
+            setErrors(err.response?.data?.errors)
         })
 
         console.log(newGarageSale);
@@ -138,8 +148,6 @@ const NewPostSale = props => {
                     placeholder="+ image:"
                     onChange={e => {setImage(e.target.value)}}
                     />
-
-                {/* <AddImage setImage={setImage} /> */}
 
                 <button> Post Sale</button>
 
