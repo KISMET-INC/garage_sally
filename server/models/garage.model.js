@@ -27,17 +27,17 @@ const GarageSchema = new mongoose.Schema(
 			min: Date.now
 		},
 		startTime: {
-			type: Date,
+			type: String,
 			required: [true, "A start time is required"],
-			min: Date.now
+			// min: Date.now
 		},
 		stopTime: {
-			type: Date,
+			type: String,
 			required: [true, "A stop time is required"],
-			min: Date.now
+			// min: Date.now
 		},
 		image: {
-			type: String
+			data: File
 		}
 	},
 	{ timestamps: true }

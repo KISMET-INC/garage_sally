@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, navigate} from '@reach/router'
 import axios from "axios"
+// import AddImage from '../components/AddImage';
 
 
 const NewPostSale = props => {
@@ -9,19 +10,27 @@ const NewPostSale = props => {
     const [startTime, setStartTime] = useState();
     const [endTime, setEndTime] = useState();
     const [streetNumber, setStreetNumber] = useState();
+    const [city, setCity] = useState();
     const [address, setAddress] = useState();
     const [zipcode, setZipcode] = useState();
     const [errors, setErrors] = useState();
+    // const [image, setImage] = useState();
 
 
     function submitHandler(e){
         console.log("submit button was click")
+        // console.log("Image was set", image)
         e.preventDefault();
 
         const newGarageSale ={
-            datetime: datetime,
+            date: datetime,
+            startTime: startTime,
+            stopTime: endTime,
+            streetNumber: streetNumber,
             address: address,
+            city: city,
             zipcode: zipcode,
+            // image: image
         }
 
 
@@ -58,24 +67,24 @@ const NewPostSale = props => {
                 <Link to="/new-sale"> new sale</Link>
                 <Link to="/edit/:id"> re-post</Link>
             </nav>
-      
+
 
             <form onSubmit={(e)=> {submitHandler(e)}}>
 
                 {errors?.datetime && (<p style={{color: "red"}}>
                 {errors.datetime?.message}</p>)}
-                <input 
+                <input
                 type="date"
                 placeholder="date"
                 onChange={e => {setDatetime(e.target.value)}}
                 />
 
-                
+
                 <div className="timeStamp-container">
                     <label>Start Time</label>
                     {errors?.zipecode && (<p style={{color: "red"}}>
                     {errors.zipecode?.message}</p>)}
-                    <input 
+                    <input
                     type="time"
                     placeholder="Start Time:"
                     onChange={e => {setStartTime(e.target.value)}}
@@ -84,7 +93,7 @@ const NewPostSale = props => {
                     <label>End Time</label>
                     {errors?.location && (<p style={{color: "red"}}>
                     {errors.location?.message}</p>)}
-                    <input 
+                    <input
                     type="time"
                     placeholder="End Time:"
                     onChange={e => {setEndTime(e.target.value)}}
@@ -95,39 +104,41 @@ const NewPostSale = props => {
                 <div className="addressForm-container">
                     {errors?.address && (<p style={{color: "red"}}>
                     {errors.address?.message}</p>)}
-                    <input 
+                    <input
                     type="number"
                     placeholder="Street #:"
-                    onChange={e => {setAddress(e.target.value)}}
+                    onChange={e => {setStreetNumber(e.target.value)}}
                     />
-                    
+
                     {errors?.zipecode && (<p style={{color: "red"}}>
                     {errors.zipecode?.message}</p>)}
-                    <input 
+                    <input
                     placeholder="street address:"
-                    onChange={e => {setZipcode(e.target.value)}}
+                    onChange={e => {setAddress(e.target.value)}}
                     />
                 </div>
-                        
+
                 <div className="cityZip-container">
                     {errors?.address && (<p style={{color: "red"}}>
                     {errors.address?.message}</p>)}
-                    <input 
+                    <input
                     placeholder="City:"
-                    onChange={e => {setAddress(e.target.value)}}
+                    onChange={e => {setCity(e.target.value)}}
                     />
-                    
+
                     {errors?.zipecode && (<p style={{color: "red"}}>
                     {errors.zipecode?.message}</p>)}
-                    <input 
+                    <input
                     placeholder="Zip Code:"
                     onChange={e => {setZipcode(e.target.value)}}
                     />
                 </div>
 
+                {/* <AddImage setImage={setImage} /> */}
+
                 <button> Post Sale</button>
 
-            </form>         
+            </form>
 
         </div>
     )

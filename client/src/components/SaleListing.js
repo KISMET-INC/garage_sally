@@ -13,12 +13,12 @@ const SaleListing = props => {
 
     useEffect(()=> {
 
-        let tempDate = new Date(garage.datetime)
+        let tempDate = new Date(garage.date)
         setDate(tempDate.toLocaleDateString("en-US"))
 
-        let tempTime = new Date(garage.datetime)
+        let tempTime = new Date(garage.date)
         setTime(tempTime.toLocaleTimeString("en-US"))
-        
+
     },[])
 
     return (
@@ -32,12 +32,12 @@ const SaleListing = props => {
                         <h3>Time: {time}</h3>
                         <h3>Location:</h3>
                         <h4>{destination}</h4>
-                       
-                        <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>                
+
+                        <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>
                     </div>
                 </div>
             </div>
             </div>
-    );   
+    );
 }
 export default SaleListing;

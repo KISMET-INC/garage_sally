@@ -5,12 +5,12 @@ import axios from 'axios';
 
 const Dashboard = props => {
     const [garageList, setGarageList] = useState([])
-    
+
     useEffect(()=> {
         axios.get("http://localhost:8000/api/garages/")
         .then(res=>{
             console.log(res)
-            setGarageList(res.data.users)
+            setGarageList(res.data.garages)
         })
         .catch(err=>console.log(err))
     },[])
@@ -82,6 +82,6 @@ const Dashboard = props => {
 
             {/* <AllSales /> */}
         </div>
-    );   
+    );
 }
 export default Dashboard;
