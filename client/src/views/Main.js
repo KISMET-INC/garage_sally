@@ -1,11 +1,11 @@
 import React from 'react';
 import {useContext} from 'react';
-import Wrapper from '../context/Context.js'
+import UserContext from '../context/Context.js'
 import '../App.css';
 import Component from '../components/Component.js';
 
 const Main = props => {
-    const context = useContext(Wrapper)
+    const context = useContext(UserContext)
 
     return (
         <div>
