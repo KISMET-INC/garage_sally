@@ -7,4 +7,4 @@
 ~~~~~
 ISSUES
 ~~~~~
-Dashboard isn't displaying all, just one garage
+Dashboard isn't displaying all, just one garage [Chrome issue, works in Firefox]

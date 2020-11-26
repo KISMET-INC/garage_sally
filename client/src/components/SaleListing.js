@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {navigate} from '@reach/router'
 
 const SaleListing = props => {
-    const {garage} = props
+    const { garage } = props
     const [destination] = useState(`${garage.streetNumber} ${garage.streetName}, ${garage.city}, ${garage.zipcode}`)
 
     const [image, setImage] = useState("https://maps.googleapis.com/maps/api/staticmap?center=" + destination +"&zoom=18&size=400x300&maptype=roadmap&markers=size:mid%%7C" + destination +" &key=AIzaSyDtBfh4oT2KQFP4ZFEhxTFswcaseauM_zg")
