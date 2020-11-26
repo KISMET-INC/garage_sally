@@ -2,4 +2,9 @@
  TODO
 ----------
 
-Save uploaded photos to the DB
+
+
+~~~~~
+ISSUES
+~~~~~
+Dashboard isn't displaying all, just one garage
