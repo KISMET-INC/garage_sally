@@ -30,14 +30,14 @@ const SaleListing = props => {
             <div className="allGarageSales-container">
                 <div className="garageSaleItem-container">
                 <img src= {image} alt="cover"/>
-                    <div className="info-container">
-                        <h3>Date: {date} </h3>
-                        <h3>Starts: {startTime}</h3>
-                        <h3>Location:</h3>
-                        <h4>{destination}</h4>
+                <div className="info-container">
+                    <h3>Date: {date} </h3>
+                    <h3>Starts: {startTime}</h3>
+                    <h3>Location:</h3>
+                    <h4>{destination}</h4>
 
-                        <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>
-                    </div>
+                    <button onClick={()=> {navigate(`sales/${garage._id}`)}}>Go</button>
+                </div>
                 </div>
             </div>
             </div>
