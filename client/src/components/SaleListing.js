@@ -29,7 +29,7 @@ const SaleListing = props => {
 
             <div className="allGarageSales-container">
                 <div className="garageSaleItem-container">
-                <img src= {image} alt=""/>
+                <img src= {image} alt="cover"/>
                     <div className="info-container">
                         <h3>Date: {date} </h3>
                         <h3>Starts: {startTime}</h3>

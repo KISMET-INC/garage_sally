@@ -35,6 +35,7 @@ const Dashboard = props => {
                     <input type="text" placeholder="search"/>
                 </footer>
             </div>
+            {console.log(garageList)}
             {
                 garageList.map((garage,i)=>
                     <SaleListing key={i} garage={garage}/>

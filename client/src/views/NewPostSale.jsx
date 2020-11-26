@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Link, navigate} from '@reach/router'
+import { Link, navigate } from '@reach/router'
+import AddImage from "../components/AddImage"
 import axios from "axios"
 
 
@@ -16,10 +17,19 @@ const NewPostSale = props => {
     const [date, setDate] = useState();
     const [startTime, setStartTime] = useState();
     const [stopTime, setStopTime] = useState();
-    const [image, setImage] = useState();
+    const [image, setImage] = useState("");
 
     const [errors, setErrors] = useState();
 
+
+    const imageHandler = e => {
+        let file = e.target.files[0]
+        let reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = e => {
+            setImage(e.target.result)
+        }
+    }
 
     function submitHandler(e){
         console.log("submit button was click")
@@ -36,21 +46,19 @@ const NewPostSale = props => {
             stopTime: stopTime,
 
             image: image,
-
         }
 
+        console.log(newGarageSale)
 
         axios.post("http://localhost:8000/api/garages/new", newGarageSale)
         .then((res)=>{
-            console.log(res);
+            console.log("Did it post?", res);
             navigate("/dashboard")
         })
         .catch((err)=>{
             console.log(err);
             setErrors(err.response?.data?.errors)
         })
-
-        console.log(newGarageSale);
     }
 
 
@@ -144,10 +152,12 @@ const NewPostSale = props => {
 
                 </div>
                 <h2>Upload Cover:</h2>
-                <input
+                {/* <input
                     placeholder="+ image:"
                     onChange={e => {setImage(e.target.value)}}
-                    />
+                /> */}
+
+                <AddImage imageHandler={imageHandler} />
 
                 <button> Post Sale</button>
 
