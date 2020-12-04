@@ -16,10 +16,10 @@ const GarageSchema = new mongoose.Schema(
 		},
 		zipcode: {
 			type: Number,
-			required: [true, "A zipcode is required"]
+			required: [true, "A zipcode is required"],
 		},
-		// .toLocalDateString("en-US").split("/")
-		// .toLocalTimeString("en-US").split(/:/)
+		// .toLocaleDateString("en-US").split("/")
+		// .toLocaleTimeString("en-US").split(/:/)
 		// .toLocaleString("en-US", { timeZone: "PST" })
 		date: {
 			type: Date,
@@ -29,16 +29,17 @@ const GarageSchema = new mongoose.Schema(
 		startTime: {
 			type: String,
 			required: [true, "A start time is required"],
-			// min: String.now
+			// min: Date.now
 		},
 		stopTime: {
 			type: String,
 			required: [true, "A stop time is required"],
-			// min: String.now
+			// min: Date.now
 		},
 		image: {
-			type: String
-		}
+			type: String,
+			data: Buffer,
+		},
 	},
 	{ timestamps: true }
 );
