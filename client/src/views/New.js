@@ -18,16 +18,15 @@ const New = props => {
                     <label htmlFor ="address">Address:</label>
                     <input type ='text' name='address'></input>
                 </div>
-                
+
                 <div>
                     <label htmlFor ="Date">Date:</label>
                     <input type ='date' name='date'></input>
                 </div>
-                
-                <input onClick ={(e)=> {navigate('/dashboard')}} type ='submit' value= 'Post Sale'></input>  
+                <input onClick ={(e)=> {navigate('/dashboard')}} type ='submit' value= 'Post Sale'></input>
             </form>
 
         </div>
-    );   
+    );
 }
 export default New;
