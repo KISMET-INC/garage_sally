@@ -200,9 +200,7 @@ td {
 
 }
 
-.allGarageSales-container{
-    padding-bottom: 70px;
-}
+
 
 
 .allGarageSales-container img{
@@ -221,6 +219,10 @@ td {
     border-radius: 20px;
     height: 400px;
 
+}
+
+.garageSaleItem-container img {
+  justify-self: center;
 }
 
 .garageSaleItem-container button{
@@ -375,7 +377,6 @@ td {
 
   .postInfo-container{
     display: grid;
-    justify-self: center;
     text-align: center;
 
   }
@@ -457,6 +458,74 @@ td {
 }
 
 
+
+.landingPage-container{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.landingPage-container header{
+  display: grid;
+  justify-content: center;
+}
+
+.landingPage-container header p{
+  font: 1.2em sans-serif;
+}
+
+.landingPage-container main section {
+  display: grid;
+  text-align: left;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.landingPage-container main section button{
+  font: 1.3em sans-serif;
+  display: grid;
+  background: #B936D2;
+  padding: 10px;
+  color: white;
+  width: 150px;
+  border: none;
+  border-radius: 20px;
+}
+
+.landingPage-container main section button a{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.titleHeader-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.landingPage-container h2{
+  font: 1.6em sans-serif;
+  color: #B936D2;
+  text-align: left;
+  padding-left: 20px;
+
+}
+
+
+.landingPage-container main section footer{
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.landingPage-container main section footer p{
+  font: 1.2em sans-serif;
+  justify-self: right;
+}
 
 
 
