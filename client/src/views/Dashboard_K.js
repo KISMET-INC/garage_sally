@@ -80,7 +80,8 @@ const Dashboard = props => {
 
             </div> */}
 
-            <AllSales /> */}
+            {/* <AllSales />  */}
+            
 		</div>
 	);
 }
