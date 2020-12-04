@@ -40,7 +40,7 @@ const Dashboard = props => {
                     <SaleListing key={i} garage={garage}/>
                 )
             }
-            <div className="allGarageSales-container">
+            {/* <div className="allGarageSales-container">
                 <div className="garageSaleItem-container">
                 <img src="http://northwrightcounty.today/wp-content/uploads/2016/05/garage-sale-driveway.jpg" alt=""/>
                     <div className="info-container">
@@ -75,7 +75,7 @@ const Dashboard = props => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
 
 
