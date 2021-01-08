@@ -2,9 +2,17 @@ const mongoose = require("mongoose");
 
 const GarageSchema = new mongoose.Schema(
 	{
-		location: {
+		streetNumber: {
+			type: Number,
+			required: [true, "A street number is required"],
+		},
+		streetName: {
 			type: String,
-			required: [true, "A street address is required"],
+			required: [true, "A street name is required"],
+		},
+		city: {
+			type: String,
+			required: [true, "A city name is required"],
 		},
 		zipcode: {
 			type: Number,
@@ -13,11 +21,24 @@ const GarageSchema = new mongoose.Schema(
 		// .toLocalDateString("en-US").split("/")
 		// .toLocalTimeString("en-US").split(/:/)
 		// .toLocaleString("en-US", { timeZone: "PST" })
-		datetime: {
+		date: {
 			type: Date,
-			required: [true, "A date and time is required"],
-			min: Date.now
+			required: [true, "A date is required"],
+			// min: Date.now
 		},
+		startTime: {
+			type: String,
+			required: [true, "A start time is required"],
+			// min: String.now
+		},
+		stopTime: {
+			type: String,
+			required: [true, "A stop time is required"],
+			// min: String.now
+		},
+		image: {
+			type: String
+		}
 	},
 	{ timestamps: true }
 );

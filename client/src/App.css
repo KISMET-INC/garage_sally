@@ -1,7 +1,13 @@
+body{
+  /* background:rgb(68, 68, 68); */
+  background:whitesmoke;
+}
+
 .App {
   max-width: 25em;
   margin: 0 auto;
   /* padding: 40px; */
+  background: white;
 }
 
 
@@ -43,7 +49,6 @@ th {
 td {
     height: 40px;
 }
-
 
 
 .regLoginNav-container{
@@ -110,6 +115,7 @@ td {
       color: white;
       border:  none;
       border-radius: 5px;
+
   }
 
   .dashboard-container{
@@ -141,8 +147,6 @@ td {
       border-radius: 30px;
       background: white;
       z-index: 5;
-
-
   }
 
   .postSale-container a {
@@ -247,9 +251,17 @@ td {
     row-gap: 30px;
     width: auto;
     background: none;
-    margin: 0 auto;
     padding: 0px;
+    justify-content: center;
   }
+
+  .newGarageSale-container h2{
+    margin-top: 10px;
+    font: 1.1em sans-serif;
+    color: #B936D2;
+    border-bottom: solid 3px #9f3cb363;
+  }
+
 
 .backBTN-container  {
       display: grid;
@@ -262,12 +274,21 @@ td {
       font: 1.1em sans-serif;
       text-decoration: none;
       margin-top: 10px;
+      color: #B936D2;
   }
 
 
 .user-container{
     margin: 0 auto;
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
 
+
+.user-container img {
+  height: 70px;
 }
 
   
@@ -296,6 +317,8 @@ td {
       row-gap: 10px;
       padding: 12px;
       width: 350px;
+      box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.199);
+
 
     
     }
@@ -313,6 +336,129 @@ td {
         border: none;
         padding: 10px;
         border-radius: 30px;
+        margin-top: 10px;
+
     }
 
+
+    .timeStamp-container{
+      display: grid;
+      row-gap: 5px;
+      grid-template-columns: 1fr 3fr;
+    }
+
+    .addressForm-container{
+      display: grid;
+      column-gap: 3px;
+      grid-template-columns:  100px 1fr;
+      
+    }
+
+ 
+    .cityZip-container{
+      display: grid;
+      column-gap: 3px;
+      grid-template-columns: 1fr 100px;
+
+    }
+
+
+  .garageInfo-container{
+    display: grid;
+    font: .9em sans-serif;
+    /* justify-content: center; */
+    align-content: flex-start;
+    height: 100vh;
+ 
+
+  }
+
+  .postInfo-container{
+    display: grid;
+    justify-self: center;
+    text-align: center;
+
+  }
+
+  .postInfo-container h1 {
+    background: #B936D2;
+    padding: 10px;
+    margin: 20px 0  -10px 0;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.185) 0 -3px 2px;
     
+  }
+
+  .postInfo-container img {
+    width: auto;
+    height: 250px;
+  }
+    
+
+  .rate-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .rate-container p{
+    font: 1.3em sans-serif;
+  }
+
+  
+  .rate-container a{
+    font: 1.3em sans-serif;
+    color: #B936D2;
+  }
+
+
+.postInfo-container h2 {
+  font: 1.7em sans-serif;
+  padding: 10px;
+  margin-top: 10px;
+
+}
+
+.postInfo-container button {
+  width: 150px;
+  justify-self: center;
+  border: none;
+  padding: 7px;
+  font: 1.5em sans-serif;
+  background: #B936D2;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+
+.infoOptions-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font: 1.5em sans-serif;
+}
+
+.postInfo-container a {
+  color: #B936D2;
+}
+
+.garageInfo-container  button:last-child {
+  font: 1.5em sans-serif;
+  font-weight: bold;
+  background: white;
+  color: #B936D2;
+  border: solid 2px rgb(216, 216, 216);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  
+}
+
+
+
+
+
+
+
