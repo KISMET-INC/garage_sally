@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const GarageSchema = new mongoose.Schema(
 	{
+		//one to many : User 
 		streetNumber: {
 			type: Number,
 			required: [true, "A street number is required"],
@@ -36,6 +37,8 @@ const GarageSchema = new mongoose.Schema(
 			required: [true, "A stop time is required"],
 			// min: Date.now
 		},
+
+		// implement file uploader ( Luis )
 		image: {
 			type: String,
 			data: Buffer,

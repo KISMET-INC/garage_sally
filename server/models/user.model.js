@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema(
 	{
+		// subscribe boolean
+		
 		name: {
 			type: String,
 			required: [true, "A name is required"],

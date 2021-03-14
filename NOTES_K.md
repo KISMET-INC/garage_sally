@@ -46,3 +46,46 @@ Routes APP and SERVER to show user their garages (filter by user)
 learn how to upload pictures?
 
 
+****
+## TODO
+
+##  C#!!!!!!!
+## FILE UPLOADER
+
+
+- [ ] Wireframe 
+- [ ] 
+
+
+## MUSTS
+## Kristen
+- [ ] Login/registration get working validations and access
+- [ ] Dont allow users acces to dashboard without cookie
+- [ ] Logout
+- [ ] Research linking to new database/SQLlite
+  
+  ## LUIS
+- [ ] Research linking to new database/MONGODB
+- [ ] Menu
+- [ ] Repost - Edit
+- [ ] Directions button on press
+- [ ] Edit Profile
+
+  ## KIM
+- [ ] Research linking to new database/MYSQL
+- [ ] Update File uploader / Change upload photo
+- [ ] User - boolean  - update to subscribe or unsubscribe
+- [ ] Pretty Date
+- [ ] Restructure controllers folder
+
+
+
+- [] Profile Page UI/Axios/Controller
+
+- [ ] Checkin
+- [ ] Rate
+- [ ] Share
+- [ ] Visitors
+- [ ] --- Account management
+- [ ] Search by zipcode
+- [ ] Dynamic Google API
